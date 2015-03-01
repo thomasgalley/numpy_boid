@@ -10,7 +10,15 @@ boid_velocities[0,:] *= 10
 boid_velocities[1,:] *= 40
 boid_velocities[1,:] -= 20
 
-boid_position_diff=np.add.outer(boid_positionsx,-boid_positionsx)
+boid_position_diff_x=np.add.outer(boid_positionsx,-boid_positionsx)
+boid_position_diff_y=np.add.outer(boid_positionsy,-boid_positionsy)
+
+#Fly towards middle
+
+boid_position_diff=(np.add.outer(boid_positionsx,-boid_positionsx))
+np.sum(boid_position_diff,axis=1)
+new_boid_positions=boid_positionsx+np.sum(boid_position_diff,axis=1)*0.01/50boid_velocities[0,i]+= boid_velocities+np.sum(boid_position_diff_x[i])*0.01/50
+
 
 
 
