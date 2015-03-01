@@ -17,7 +17,8 @@ boid_position_diff_y=np.add.outer(boid_positionsy,-boid_positionsy)
 
 boid_position_diff=(np.add.outer(boid_positionsx,-boid_positionsx))
 np.sum(boid_position_diff,axis=1)
-new_boid_positions=boid_positionsx+np.sum(boid_position_diff,axis=1)*0.01/50boid_velocities[0,i]+= boid_velocities+np.sum(boid_position_diff_x[i])*0.01/50
+new_boid_positions=boid_positionsx+np.sum(boid_position_diff,axis=1)*0.01/50
+test=boid_position_diffx**2+boid_position_diffy**2 
 
 
 
