@@ -12,19 +12,19 @@ boid_velocities[1,:] -= 20
 
 boid_position_diff_x=np.add.outer(boid_positionsx,-boid_positionsx)
 boid_position_diff_y=np.add.outer(boid_positionsy,-boid_positionsy)
-
+boid_velocities_diffx=(np.add.outer(boid_positionsx,-boid_positionsx))
 #Fly towards middle
 
 boid_position_diff=(np.add.outer(boid_positionsx,-boid_positionsx))
 np.sum(boid_position_diff,axis=1)
-new_boid_positions=boid_positionsx+np.sum(boid_position_diff,axis=1)*0.01/50
+new_boid_velocitiesx=boid_velocitiesx
+new_boid_velocitiesx=boid_velocitiesx+np.sum(boid_position_diffx,axis=1)*0.01/50
 test=boid_position_diffx**2+boid_position_diffy**2
-condition1=test<100
-condition2=test<10000
-test=(boid_position_diffx**2+boid_position_diffy**2)<10000
+test=(boid_position_diffx**2+boid_position_diffy**2)<100
 new_boid_velocitiesx=boid_velocitiesx
 new_boid_velocitiesx=boid_velocitiesx+test[:,0]*boid_position_diffx[:,0] #if the test is true (=1) the new velocity will update,otherwise it will not (since false=0)
-
+test2=(boid_position_diffx**2+boid_position_diffy**2)<10000
+new_boid_velocities+=test[:,0]*boid_velocities_diffx[:,0]
 
 
 """
