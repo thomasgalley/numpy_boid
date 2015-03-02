@@ -21,7 +21,9 @@ new_boid_positions=boid_positionsx+np.sum(boid_position_diff,axis=1)*0.01/50
 test=boid_position_diffx**2+boid_position_diffy**2
 condition1=test<100
 condition2=test<10000
-
+test=(boid_position_diffx**2+boid_position_diffy**2)<10000
+new_boid_velocitiesx=boid_velocitiesx
+new_boid_velocitiesx=boid_velocitiesx+test[:,0]*boid_position_diffx[:,0] #if the test is true (=1) the new velocity will update,otherwise it will not (since false=0)
 
 
 
