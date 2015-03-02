@@ -24,8 +24,8 @@ test=(boid_position_diffx**2+boid_position_diffy**2)<100
 new_boid_velocitiesx=boid_velocitiesx
 new_boid_velocitiesx=boid_velocitiesx+test[:,0]*boid_position_diffx[:,0] #if the test is true (=1) the new velocity will update,otherwise it will not (since false=0)
 test2=(boid_position_diffx**2+boid_position_diffy**2)<10000
-new_boid_velocities+=test[:,0]*boid_velocities_diffx[:,0]
-
+new_boid_velocitiesx+=test[:,0]*boid_velocities_diffx[:,0]
+boid_positionsx+=new_boid_velocitiesx[0]
 
 """
 
